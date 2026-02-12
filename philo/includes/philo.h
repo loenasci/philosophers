@@ -50,7 +50,7 @@ typedef struct s_data
 }	t_data;
 
 // init.c
-int		init_data(t_data *data, int argc, char **argv);
+int		init_data(t_data *data);
 int		init_mutexes(t_data *data);
 int		init_philosophers(t_data *data);
 
@@ -84,5 +84,6 @@ int		error_exit(char *msg);
 // cleanup.c
 void	cleanup(t_data *data);
 void	destroy_mutexes(t_data *data);
+void	destroy_forks(t_data *data);
 
 #endif
