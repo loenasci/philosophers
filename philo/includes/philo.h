@@ -54,6 +54,9 @@ int		init_data(t_data *data, int argc, char **argv);
 int		init_mutexes(t_data *data);
 int		init_philosophers(t_data *data);
 
+// parsing.c
+int		parse_arguments(int argc, char **argv, t_data *data);
+
 // routine.c
 void	*philosopher_routine(void *arg);
 
@@ -76,6 +79,7 @@ int		ft_atoi_safe(char *str, int *result);
 long	get_time_ms(void);
 void	smart_sleep(long milliseconds);
 void	print_status(t_philo *philo, char *status);
+int		error_exit(char *msg);
 
 // cleanup.c
 void	cleanup(t_data *data);

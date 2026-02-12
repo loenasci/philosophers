@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo.h>
+#include "philo.h"
 
 int	ft_atoi_safe(char *str, int *result)
 {
@@ -37,12 +37,13 @@ long	get_time_ms(void)
 	gettimeofday(&tv, NULL);
 	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
+
 void	smart_sleep(long milliseconds)
 {
 	long	start;
 
 	start = get_time_ms();
-	while ((get_time_ms() - start) < milliseconds) // Enquanto nao passou os milisegundos
+	while ((get_time_ms() - start) < milliseconds)
 		usleep(500); // dorme 0.5ms e verifica de novo
 }
 
