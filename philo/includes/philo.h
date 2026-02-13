@@ -24,41 +24,41 @@
 
 typedef struct s_philo
 {
-	int				id;				// ID do filósofo (1 a N)
-	pthread_t		thread;			// Thread do filósofo
-	long			last_meal_time;	// Timestamp da última refeição
-	int				meals_eaten;	// Contador de refeições
-	pthread_mutex_t	meal_mutex;		// Protege last_meal_time e meals_eaten
-	struct s_data	*data;			// Ponteiro para dados globais
+	int				id;
+	pthread_t		thread;
+	long			last_meal_time;
+	int				meals_eaten;
+	pthread_mutex_t	meal_mutex;
+	struct s_data	*data;
 }	t_philo;
 
 typedef struct s_data
 {
-	int				num_philos;			// Número de filósofos
-	int				time_to_die;		// Tempo para morrer (ms)
-	int				time_to_eat;		// Tempo para comer (ms)
-	int				time_to_sleep;		// Tempo para dormir (ms)
-	int				must_eat_count;		// Vezes que deve comer (-1 se não obrigatório)
-	long			start_time;			// Timestamp do início
-	int				someone_died;		// Flag de morte (0 ou 1)
-	pthread_mutex_t	*forks;				// Array de mutexes (garfos)
-	pthread_mutex_t	print_mutex;		// Para sincronizar prints
-	pthread_mutex_t	death_mutex;		// Para acessar someone_died
-	t_philo			*philos;			// Array de filósofos
-	int				all_ate_flag;		// Flag indicando que todos comeram suficiente
-	pthread_mutex_t	meal_check_mutex;	// Protege all_ate_flag
+	int				num_philos;
+	int				time_to_die;
+	int				time_to_eat;
+	int				time_to_sleep;
+	int				must_eat_count;
+	long			start_time;
+	int				someone_died;
+	pthread_mutex_t	*forks;
+	pthread_mutex_t	print_mutex;
+	pthread_mutex_t	death_mutex;
+	t_philo			*philos;
+	int				all_ate_flag;
+	pthread_mutex_t	meal_check_mutex;
 }	t_data;
 
 // init.c
 int		init_data(t_data *data);
 int		init_mutexes(t_data *data);
-int		init_philosophers(t_data *data);
+int		init_philos(t_data *data);
 
 // parsing.c
 int		parse_arguments(int argc, char **argv, t_data *data);
 
 // routine.c
-void	*philosopher_routine(void *arg);
+void	*philo_routine(void *arg);
 
 // actions.c
 void	philo_eat(t_philo *philo);

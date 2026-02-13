@@ -54,7 +54,7 @@ static void	philo_loop(t_philo *philo)
 	}
 }
 
-void	*philosopher_routine(void *arg)
+void	*philo_routine(void *arg)
 {
 	t_philo	*philo;
 

@@ -44,7 +44,7 @@ void	smart_sleep(long milliseconds)
 
 	start = get_time_ms();
 	while ((get_time_ms() - start) < milliseconds)
-		usleep(500); // dorme 0.5ms e verifica de novo
+		usleep(500);
 }
 
 void	print_status(t_philo *philo, char *status)
